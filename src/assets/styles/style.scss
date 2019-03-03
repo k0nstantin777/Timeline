@@ -1,5 +1,6 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
+$item-color: #4453ce;
 
 *{
     padding:0;
@@ -10,17 +11,14 @@ body {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url('../images/background.jpg');
-    background-repeat: round;
+    background-size: 100% 100%;
+    height: -webkit-fill-available;
+    height: fill-available;
+    color: #9e9e9e;
 }
 
 h1 {
     font-size: 3em;
-}
-
-.container {
-    max-width: 1024px;
-    padding: 0 2%;
-    margin: auto;
 }
 
 .flex {
@@ -43,5 +41,104 @@ h1 {
     }
     &.basis-100{
         flex-basis: 100%;
+    }
+}
+
+.container {
+    max-width: 1024px;
+    padding: 0 2%;
+    margin: auto;
+}
+
+.timeline {
+    padding: 5%;
+    .timeline-head{
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .timeline-line{
+        border: 2px solid #6161a7;
+        height: 300px;
+    }
+    .timeline-column{
+        flex-basis: 40%;
+        .timeline-event-item{
+            margin: 20px 12px;
+            border-radius: 10px;
+            position: relative;
+            .timeline-event-item-head{
+                font-size: 1.2em;
+                font-weight: 600;
+                background-color: $item-color;
+                color: #fff;    
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px; 
+                padding: 5px 10px;
+            }
+            .timeline-event-item-body{
+                padding: 5%;
+                background-color: #fff;
+                span {
+                    flex-basis: 100%;
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            &.transaction{
+                .positive{
+                    background-color: #81e881;   
+                }
+                .negative{
+                    background-color: #d36363;   
+                }     
+            }
+            .timeline-event-item-footer{ 
+                background-color: $item-color;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px; 
+                height: 25px;
+            }
+            &:after, &:before{
+                content: '';
+                position: absolute;
+                top: 30%;
+                border: 8px solid transparent;
+                z-index: 1;
+            }
+            .point{
+                position: absolute;
+                top: calc(30% + 1px);
+                width: 10px;
+                height: 10px;
+                background-color: #fff;
+                border: 1px solid #4453ce;
+                border-radius: 100%;; 
+            }    
+
+            
+        }
+        &.left{
+            .timeline-event-item{
+                &:after{
+                    right: -16px;
+                    border-left: 8px solid #fff;
+                }
+                .point{
+                    right: -20px;
+                }    
+            }
+        }
+        &.right{
+            .timeline-event-item{
+                &:before{
+                    left: -16px;
+                    border-right: 8px solid #fff;
+                }
+                .point{
+                    left: -20px;
+                }    
+            }
+        }
     }
 }

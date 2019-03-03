@@ -4,4 +4,35 @@ html
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, viewport-fit=cover")
         title Timeline
-    body    
+    body   
+        main#app
+            section.container
+                article.timeline.flex.flex-wrap.justify-center
+                    h1.timeline-head Timeline
+                    div.timeline-column.flex.direction-column.left
+                        div.timeline-event.timeline-event-item.transaction
+                            p.timeline-event-item-head Финансовая транзакция
+                            div.timeline-event-item-body.flex.flex-wrap
+                                span.summ Сумма: 200
+                                span.currency Валюта: Р.
+                                span.author От кого: OOO "Трансгаз"
+                            p.timeline-event-item-footer.positive
+                            span.point   
+                        div.timeline-event.timeline-event-item.transaction
+                            p.timeline-event-item-head Финансовая транзакция
+                            div.timeline-event-item-body.flex.flex-wrap
+                                span.summ Сумма: 200
+                                span.currency Валюта: Р.
+                                span.author От кого: OOO "Трансгаз"
+                            p.timeline-event-item-footer.positive
+                            span.point      
+                    div.timeline-line
+                    div.timeline-column.flex.direction-column.right
+                        div.timeline-event.timeline-event-item.transaction
+                            p.timeline-event-item-head Финансовая транзакция
+                            div.timeline-event-item-body.flex.flex-wrap
+                                span.summ Сумма: 200
+                                span.currency Валюта: Р.
+                                span.author От кого: OOO "Трансгаз"
+                            p.timeline-event-item-footer.negative
+                            span.point   
