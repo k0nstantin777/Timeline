@@ -50,6 +50,33 @@ h1 {
     margin: auto;
 }
 
+@mixin flex {
+    display: flex;
+}
+
+@mixin flex-wrapped {
+    @include flex;
+    flex-wrap: wrap;
+}
+
+@mixin flex-centered {
+    @include flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-centered-wrapped{
+    @include flex-centered;
+    @include flex-wrapped;
+}
+
+@mixin inverse-font {
+    background-color: $item-color;
+    color: #fff;
+}
+
+
+
 .timeline {
     padding: 5%;
     .timeline-head{
@@ -58,24 +85,33 @@ h1 {
     }
     .timeline-line{
         border: 2px solid #6161a7;
-        height: 300px;
+        height: 500px;
     }
     .timeline-column{
         flex-basis: 40%;
         .timeline-event-item{
-            margin: 20px 12px;
+            margin: 20px 12px 120px;
             border-radius: 10px;
             position: relative;
             .timeline-event-item-head{
-                font-size: 1.2em;
+                font-size: 1.1em;
                 font-weight: 600;
                 background-color: $item-color;
                 color: #fff;    
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px; 
                 padding: 5px 10px;
+                i {
+                    color: #f36969;
+                    cursor:pointer;
+                    transition: all 0.3s;
+                    &:hover {
+                        transform: scale(1.2, 1.2);
+                    }
+                }
             }
             .timeline-event-item-body{
+                @include flex-wrapped;
                 padding: 5%;
                 background-color: #fff;
                 span {
@@ -94,10 +130,52 @@ h1 {
                 }     
             }
             .timeline-event-item-footer{ 
+                @include flex-centered;
                 background-color: $item-color;
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius: 10px; 
-                height: 25px;
+                i {
+                    color: #fff;
+                    font-size: 1.2em;
+                    padding: 5px 0;
+                }
+            }
+            .date-content{
+                position: absolute;
+                top: calc(30% + 2px);
+                width: 200px;
+                .date-content-wrapper{
+                    position: relative;
+                    width: 100%;
+                    .point{
+                        position: absolute;
+                        top: 0;
+                        width: 10px;
+                        height: 10px;
+                        background-color: #fff;
+                        border: 1px solid #4453ce;
+                        border-radius: 100%;
+                        z-index: 1;
+                    }
+                    .line{
+                        border: 1px solid #ccc;
+                        width: 60%;
+                        height: 0;
+                        position: absolute;
+                        top: 4px;
+                    }
+                    .date{
+                        @include inverse-font;
+                        font-size: 1.2em;
+                        font-weight: 600;
+                        width: 40%;
+                        position: absolute;
+                        top: -8px;
+                        padding: 3px 10px;
+                        text-align: center;
+                        border-radius: 5px;
+                    }
+                }
             }
             &:after, &:before{
                 content: '';
@@ -105,32 +183,49 @@ h1 {
                 top: 30%;
                 border: 8px solid transparent;
                 z-index: 1;
-            }
-            .point{
-                position: absolute;
-                top: calc(30% + 1px);
-                width: 10px;
-                height: 10px;
-                background-color: #fff;
-                border: 1px solid #4453ce;
-                border-radius: 100%;; 
-            }    
+            }   
 
             
         }
         &.left{
             .timeline-event-item{
+                .date-content{
+                    right: -218px; 
+                    .date-content-wrapper{
+                        .line{
+                            left: 0;
+                        }
+                        .date{
+                            right: 0;
+                        }
+                    }   
+                }
                 &:after{
                     right: -16px;
                     border-left: 8px solid #fff;
                 }
                 .point{
-                    right: -20px;
+                    left: -10px;
                 }    
             }
         }
         &.right{
+            margin-top: 140px;
             .timeline-event-item{
+                .date-content{
+                    left: -218px;  
+                    .date-content-wrapper{
+                        .point{
+                            left:198px;
+                        }
+                        .line{
+                            right: 0;
+                        }
+                        .date{
+                            left: 0;
+                        }
+                    }    
+                }
                 &:before{
                     left: -16px;
                     border-right: 8px solid #fff;
