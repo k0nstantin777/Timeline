@@ -90,7 +90,7 @@ h1 {
     .timeline-column{
         flex-basis: 40%;
         .timeline-event-item{
-            margin: 20px 12px 120px;
+            margin: 20px 12px 100px;
             border-radius: 10px;
             position: relative;
             .timeline-event-item-head{
@@ -103,9 +103,9 @@ h1 {
                 padding: 5px 10px;
             }
             .timeline-event-item-body{
-                @include flex-wrapped;
                 padding: 5%;
                 background-color: #fff;
+                min-height: 60px;
                 span {
                     flex-basis: 100%;
                     &:not(:last-child) {

@@ -2376,7 +2376,7 @@ h1 {
   .timeline .timeline-column {
     flex-basis: 40%; }
     .timeline .timeline-column .timeline-event-item {
-      margin: 20px 12px 120px;
+      margin: 20px 12px 100px;
       border-radius: 10px;
       position: relative; }
       .timeline .timeline-column .timeline-event-item .timeline-event-item-head {
@@ -2388,10 +2388,9 @@ h1 {
         border-top-right-radius: 10px;
         padding: 5px 10px; }
       .timeline .timeline-column .timeline-event-item .timeline-event-item-body {
-        display: flex;
-        flex-wrap: wrap;
         padding: 5%;
-        background-color: #fff; }
+        background-color: #fff;
+        min-height: 60px; }
         .timeline .timeline-column .timeline-event-item .timeline-event-item-body span {
           flex-basis: 100%; }
           .timeline .timeline-column .timeline-event-item .timeline-event-item-body span:not(:last-child) {

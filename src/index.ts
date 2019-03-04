@@ -1,5 +1,6 @@
 import './assets/styles/style.scss';
-import {Timeline} from './assets/scripts/Timeline';
-import {EventSearcher} from './assets/scripts/events/EventSearcher';
+import {Timeline} from './assets/scripts/components/Timeline';
+import {EventList} from './assets/scripts/components/events/EventList';
 
-const timeline = new Timeline(new EventSearcher());
+const timeline = new Timeline(new EventList());
+timeline.run();
