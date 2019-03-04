@@ -2387,12 +2387,6 @@ h1 {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         padding: 5px 10px; }
-        .timeline .timeline-column .timeline-event-item .timeline-event-item-head i {
-          color: #f36969;
-          cursor: pointer;
-          transition: all 0.3s; }
-          .timeline .timeline-column .timeline-event-item .timeline-event-item-head i:hover {
-            transform: scale(1.2, 1.2); }
       .timeline .timeline-column .timeline-event-item .timeline-event-item-body {
         display: flex;
         flex-wrap: wrap;
@@ -2410,6 +2404,7 @@ h1 {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 25px;
         background-color: #4453ce;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px; }

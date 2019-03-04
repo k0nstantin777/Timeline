@@ -101,14 +101,6 @@ h1 {
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px; 
                 padding: 5px 10px;
-                i {
-                    color: #f36969;
-                    cursor:pointer;
-                    transition: all 0.3s;
-                    &:hover {
-                        transform: scale(1.2, 1.2);
-                    }
-                }
             }
             .timeline-event-item-body{
                 @include flex-wrapped;
@@ -131,6 +123,7 @@ h1 {
             }
             .timeline-event-item-footer{ 
                 @include flex-centered;
+                height: 25px;
                 background-color: $item-color;
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius: 10px; 

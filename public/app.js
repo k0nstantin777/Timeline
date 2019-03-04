@@ -86,6 +86,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/assets/scripts/Timeline.ts":
+/*!****************************************!*\
+  !*** ./src/assets/scripts/Timeline.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Timeline = /** @class */ (function () {\n    function Timeline(eventSearcher) {\n        this.eventSearcher = eventSearcher;\n        this.head = 'Timeline';\n        this.init();\n    }\n    Timeline.prototype.init = function () {\n        this.events = this.eventSearcher.getEvents();\n        console.log(this.events);\n    };\n    Timeline.prototype.build = function () {\n    };\n    return Timeline;\n}());\nexports.Timeline = Timeline;\n\n\n//# sourceURL=webpack:///./src/assets/scripts/Timeline.ts?");
+
+/***/ }),
+
+/***/ "./src/assets/scripts/events/EventFakeData.ts":
+/*!****************************************************!*\
+  !*** ./src/assets/scripts/events/EventFakeData.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar eventsTypes = ['transaction', 'news'];\nvar transactionsCurrency = ['RUB', 'USD', 'EURO'];\nvar transactionsAuthors = ['OOO \"Молоко\"', 'ИП \"Иванов\"', 'OAO \"Мегафон\"'];\nvar transactionsDescriptions = ['Списание задолженности', 'Пополнение баланса', 'Кредитная карта'];\nvar transactionsMoves = ['positive', 'negative'];\nvar newsHeads = ['Новая версия программы', 'Новый технический директор', 'Подведены итоги голосования'];\nvar newsMessages = ['У нас вышла новая версия программы', 'У нас новый технический директор', 'Наконецто подведены итоги голосования'];\nvar events = [];\nfor (var i = 0; i < 10; i++) {\n    var type = eventsTypes[getRandomInRange(0, 1)];\n    var date = new Date(getRandomInRange(2017, 2018), getRandomInRange(0, 11), getRandomInRange(0, 30));\n    if (type === 'transaction') {\n        events.push({\n            type: type,\n            content: {\n                summ: getRandomInRange(100, 1000),\n                currency: transactionsCurrency[getRandomInRange(0, 2)],\n                author: transactionsAuthors[getRandomInRange(0, 2)],\n                description: transactionsDescriptions[getRandomInRange(0, 2)],\n                move: transactionsMoves[getRandomInRange(0, 1)],\n            },\n            date: date.toLocaleDateString(),\n        });\n    }\n    else if (type === 'news') {\n        events.push({\n            type: type,\n            content: {\n                head: newsHeads[getRandomInRange(0, 2)],\n                message: newsMessages[getRandomInRange(0, 2)]\n            },\n            date: date.toLocaleDateString(),\n        });\n    }\n}\nfunction getRandomInRange(min, max) {\n    return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nexports.default = events;\n\n\n//# sourceURL=webpack:///./src/assets/scripts/events/EventFakeData.ts?");
+
+/***/ }),
+
+/***/ "./src/assets/scripts/events/EventSearcher.ts":
+/*!****************************************************!*\
+  !*** ./src/assets/scripts/events/EventSearcher.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar EventFakeData_1 = __webpack_require__(/*! ./EventFakeData */ \"./src/assets/scripts/events/EventFakeData.ts\");\nvar EventSearcher = /** @class */ (function () {\n    function EventSearcher() {\n    }\n    EventSearcher.prototype.getEvents = function () {\n        return EventFakeData_1.default;\n    };\n    return EventSearcher;\n}());\nexports.EventSearcher = EventSearcher;\n\n\n//# sourceURL=webpack:///./src/assets/scripts/events/EventSearcher.ts?");
+
+/***/ }),
+
 /***/ "./src/assets/styles/style.scss":
 /*!**************************************!*\
   !*** ./src/assets/styles/style.scss ***!
@@ -105,7 +141,7 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./sr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! ./assets/styles/style.scss */ \"./src/assets/styles/style.scss\");\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! ./assets/styles/style.scss */ \"./src/assets/styles/style.scss\");\nvar Timeline_1 = __webpack_require__(/*! ./assets/scripts/Timeline */ \"./src/assets/scripts/Timeline.ts\");\nvar EventSearcher_1 = __webpack_require__(/*! ./assets/scripts/events/EventSearcher */ \"./src/assets/scripts/events/EventSearcher.ts\");\nvar timeline = new Timeline_1.Timeline(new EventSearcher_1.EventSearcher());\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ })
 
