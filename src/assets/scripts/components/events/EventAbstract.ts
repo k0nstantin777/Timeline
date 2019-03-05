@@ -3,11 +3,13 @@ import {IEventData} from '../../interfaces/IEventData';
 import {AnyObj} from '../../interfaces/AnyObj'; 
 import {ElementBuilder} from '../../helpers/ElementBuilder'; 
 export abstract class EventAbstract implements IEvent {
+    public id:number;
     public type:string;
     public content:AnyObj;
     public date:string;
     
     constructor(event:IEventData){
+        this.id = event.id;
         this.type = event.type;
         this.content = event.content;
         this.date = event.date;
@@ -33,6 +35,10 @@ export abstract class EventAbstract implements IEvent {
         dateWrapper.append(date);
         dataContent.append(dateWrapper);
         eventElement.append(dataContent);
+
+        eventElement.addEventListener('click', this.clickEventHandler.bind(this));
         return eventElement;
     }
+
+    abstract clickEventHandler():void;
 }

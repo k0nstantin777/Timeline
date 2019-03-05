@@ -14,6 +14,7 @@ for(let i = 0; i < 10; i++){
     const date = new Date(getRandomInRange(2017,2018), getRandomInRange(0,11), getRandomInRange(0,30));
     if(type === 'transaction'){
         events.push({
+            id: i+1,
             type: type,
             content: {
                 summ: getRandomInRange(100,1000),
@@ -26,10 +27,12 @@ for(let i = 0; i < 10; i++){
         });
     } else if (type === 'news'){
         events.push({
+            id: i+1,
             type: type,
             content: {
                 head: newsHeads[getRandomInRange(0,2)],
-                message: newsMessages[getRandomInRange(0,2)]
+                message: newsMessages[getRandomInRange(0,2)],
+                isRead: getRandomInRange(0,1)
             },
             date: date.toLocaleDateString(),
         });

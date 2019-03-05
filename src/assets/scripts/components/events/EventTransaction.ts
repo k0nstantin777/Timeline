@@ -3,6 +3,7 @@ import {IEventData} from '../../interfaces/IEventData';
 import { ITransactionContent } from "../../interfaces/ITransactionContent";
 import { EventAbstract } from "./EventAbstract";
 import {ElementBuilder} from '../../helpers/ElementBuilder'; 
+import {Modal} from '../Modal'; 
 
 export class EventTransaction extends EventAbstract implements IEvent{
 
@@ -29,6 +30,33 @@ export class EventTransaction extends EventAbstract implements IEvent{
         const mark:HTMLElement = new ElementBuilder('i', {'class': (this.content.move === 'positive') ? 'fa fa-plus' : 'fa fa-minus', 'aria-hidden' : "true"}).build();
         footer.append(mark);
         return element;
+    }
+
+    clickEventHandler():void{
+        const modal:Modal = new Modal;
+        const data = this.prependInfoForShow();
+        modal.showInfo(data);
+    }
+
+    prependInfoForShow():{title: string, content: string[], footer: HTMLElement}{
+        const modal:Modal = new Modal;
+        const btnElement = new ElementBuilder('button', {type: 'button', class: 'btn btn-danger', text: 'Удалить'}).build();
+        btnElement.addEventListener('click', this.remove.bind(this));
+        return {
+            title: 'Финансовая транзакция, ' + this.date,
+            content: [
+                `Cумма: ${this.content.summ} ${this.content.currency}`,
+                `Вид: ${(this.content.move === 'positive') ? 'Приход' : 'Расход'}`,
+                `Автор: ${this.content.author}`,
+                `Описание: ${this.content.description}`,
+            ],
+            footer: btnElement,
+        }
+    }
+
+    remove(e:Event):void{
+        e.preventDefault();
+        console.log('remove' + this.id);
     }
 
 

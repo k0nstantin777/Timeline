@@ -19,13 +19,13 @@ export class Timeline {
         this.leftColumnElement = document.querySelector('.timeline-column.left');
         this.rightColumnElement = document.querySelector('.timeline-column.right');
         this.events = this.eventList.getEvents();
-        console.log(this);
+        console.log(this.events);
     }
 
     public run(){
         this.setHeightLine();
         this.events.forEach((event, index) => {
-            if(index%2 !==0){
+            if(index%2 === 0){
                 this.leftColumnElement.append(this.getTimeLineItem(event));
             } else {
                 this.rightColumnElement.append(this.getTimeLineItem(event));

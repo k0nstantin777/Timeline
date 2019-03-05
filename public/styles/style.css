@@ -2337,7 +2337,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url(../images/background.jpg);
   background-size: 100% 100%;
-  color: #9e9e9e; }
+  color: #9e9e9e;
+  position: relative; }
 
 h1 {
   font-size: 3em; }
@@ -2353,6 +2354,8 @@ h1 {
     flex-wrap: wrap; }
   .flex.justify-center {
     justify-content: center; }
+  .flex.justify-end {
+    justify-content: flex-end; }
   .flex.direction-column {
     flex-direction: column; }
   .flex.basis-100 {
@@ -2376,7 +2379,9 @@ h1 {
     .timeline .timeline-column .timeline-event-item {
       margin: 20px 12px 100px;
       border-radius: 10px;
-      position: relative; }
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s; }
       .timeline .timeline-column .timeline-event-item .timeline-event-item-head {
         font-size: 1.1em;
         font-weight: 600;
@@ -2448,6 +2453,9 @@ h1 {
         top: 30%;
         border: 8px solid transparent;
         z-index: 1; }
+      .timeline .timeline-column .timeline-event-item:hover {
+        box-shadow: 1px 1px 15px #aaa;
+        transform: translateY(-3px); }
     .timeline .timeline-column.left .timeline-event-item .date-content {
       right: -218px; }
       .timeline .timeline-column.left .timeline-event-item .date-content .date-content-wrapper .line {
@@ -2474,3 +2482,62 @@ h1 {
         border-right: 8px solid #fff; }
       .timeline .timeline-column.right .timeline-event-item .point {
         left: -20px; }
+
+.modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: none; }
+  .modal .modal-wrapper {
+    position: relative; }
+    .modal .modal-wrapper .modal-window {
+      width: 80%;
+      margin: 15% auto;
+      background-color: #ebecf9;
+      border-radius: 20px;
+      border: 2px solid #ccc;
+      position: fixed;
+      left: 10%; }
+      .modal .modal-wrapper .modal-window .modal-head {
+        padding: 10px 20px; }
+      .modal .modal-wrapper .modal-window .modal-body {
+        padding: 0 40px; }
+        .modal .modal-wrapper .modal-window .modal-body .modal-info p {
+          font-size: 1.3em;
+          margin: 15px; }
+      .modal .modal-wrapper .modal-window .modal-footer {
+        margin: 20px; }
+
+.close {
+  font-size: 1.2em;
+  color: #d36363;
+  cursor: pointer; }
+  .close:hover {
+    transform: scale(1.1, 1.1);
+    transition: all 0.2s; }
+
+.btn {
+  color: #fff;
+  outline: unset;
+  border: unset;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer; }
+  .btn.btn-danger {
+    background-color: #d36363; }
+    .btn.btn-danger:hover, .btn.btn-danger:active {
+      background-color: #a82626; }
+    .btn.btn-danger:active {
+      box-shadow: 1px 1px 15px #aaa; }
+  .btn.btn-primary {
+    background-color: #3b93e6; }
+    .btn.btn-primary:hover, .btn.btn-primary:active {
+      background-color: #3073b1; }
+    .btn.btn-primary:active {
+      box-shadow: 1px 1px 15px #aaa; }
