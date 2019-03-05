@@ -2372,12 +2372,11 @@ h1 {
     flex-basis: 100%;
     text-align: center; }
   .timeline .timeline-line {
-    border: 2px solid #6161a7;
-    height: 500px; }
+    border: 2px solid #6161a7; }
   .timeline .timeline-column {
     flex-basis: 40%; }
     .timeline .timeline-column .timeline-event-item {
-      margin: 20px 12px 100px;
+      margin: 20px 12px 0px;
       border-radius: 10px;
       position: relative;
       cursor: pointer;
@@ -2393,7 +2392,7 @@ h1 {
       .timeline .timeline-column .timeline-event-item .timeline-event-item-body {
         padding: 5%;
         background-color: #fff;
-        min-height: 60px; }
+        min-height: 40px; }
         .timeline .timeline-column .timeline-event-item .timeline-event-item-body span {
           flex-basis: 100%; }
           .timeline .timeline-column .timeline-event-item .timeline-event-item-body span:not(:last-child) {
@@ -2467,21 +2466,19 @@ h1 {
       border-left: 8px solid #fff; }
     .timeline .timeline-column.left .timeline-event-item .point {
       left: -10px; }
-    .timeline .timeline-column.right {
-      margin-top: 140px; }
-      .timeline .timeline-column.right .timeline-event-item .date-content {
-        left: -218px; }
-        .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .point {
-          left: 198px; }
-        .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .line {
-          right: 0; }
-        .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .date {
-          left: 0; }
-      .timeline .timeline-column.right .timeline-event-item:before {
-        left: -16px;
-        border-right: 8px solid #fff; }
-      .timeline .timeline-column.right .timeline-event-item .point {
-        left: -20px; }
+    .timeline .timeline-column.right .timeline-event-item .date-content {
+      left: -218px; }
+      .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .point {
+        left: 198px; }
+      .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .line {
+        right: 0; }
+      .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .date {
+        left: 0; }
+    .timeline .timeline-column.right .timeline-event-item:before {
+      left: -16px;
+      border-right: 8px solid #fff; }
+    .timeline .timeline-column.right .timeline-event-item .point {
+      left: -20px; }
 
 .modal {
   position: absolute;

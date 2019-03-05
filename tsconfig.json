@@ -2,7 +2,8 @@
     "compilerOptions": {
       "outDir": "./public/",
       "noImplicitAny": true,
-      "module": "commonjs",
+      "module": "es6",
+      "lib": [ "es2017", "dom" ],
       "target": "es5",
       "sourceMap": true,
       "allowJs": true

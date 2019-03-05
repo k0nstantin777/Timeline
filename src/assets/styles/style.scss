@@ -88,12 +88,11 @@ h1 {
     }
     .timeline-line{
         border: 2px solid #6161a7;
-        height: 500px;
     }
     .timeline-column{
         flex-basis: 40%;
         .timeline-event-item{
-            margin: 20px 12px 100px;
+            margin: 20px 12px 0px;
             border-radius: 10px;
             position: relative;
             cursor:pointer;
@@ -110,7 +109,7 @@ h1 {
             .timeline-event-item-body{
                 padding: 5%;
                 background-color: #fff;
-                min-height: 60px;
+                min-height: 40px;
                 span {
                     flex-basis: 100%;
                     &:not(:last-child) {
@@ -210,7 +209,7 @@ h1 {
             }
         }
         &.right{
-            margin-top: 140px;
+            //margin-top: 140px;
             .timeline-event-item{
                 .date-content{
                     left: -218px;  

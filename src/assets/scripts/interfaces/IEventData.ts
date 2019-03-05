@@ -3,5 +3,5 @@ export interface IEventData{
     id: number;
     type: string;
     content: AnyObj;
-    date: string;
+    date: Date;
 }

@@ -1,9 +1,9 @@
 import { IEvent } from "../../interfaces/IEvent";
-import {IEventData} from '../../interfaces/IEventData';
+import { IEventData } from '../../interfaces/IEventData';
 import { ITransactionContent } from "../../interfaces/ITransactionContent";
 import { EventAbstract } from "./EventAbstract";
-import {ElementBuilder} from '../../helpers/ElementBuilder'; 
-import {Modal} from '../Modal'; 
+import { ElementBuilder } from '../../helpers/ElementBuilder'; 
+import { Modal } from '../Modal'; 
 
 export class EventTransaction extends EventAbstract implements IEvent{
 
@@ -33,9 +33,9 @@ export class EventTransaction extends EventAbstract implements IEvent{
     }
 
     clickEventHandler():void{
-        const modal:Modal = new Modal;
         const data = this.prependInfoForShow();
-        modal.showInfo(data);
+        const event = new CustomEvent('show-modal-info', {detail: data});
+        document.dispatchEvent(event);
     }
 
     prependInfoForShow():{title: string, content: string[], footer: HTMLElement}{
@@ -43,7 +43,7 @@ export class EventTransaction extends EventAbstract implements IEvent{
         const btnElement = new ElementBuilder('button', {type: 'button', class: 'btn btn-danger', text: 'Удалить'}).build();
         btnElement.addEventListener('click', this.remove.bind(this));
         return {
-            title: 'Финансовая транзакция, ' + this.date,
+            title: 'Финансовая транзакция, ' + this.date.toLocaleDateString(),
             content: [
                 `Cумма: ${this.content.summ} ${this.content.currency}`,
                 `Вид: ${(this.content.move === 'positive') ? 'Приход' : 'Расход'}`,
@@ -55,8 +55,8 @@ export class EventTransaction extends EventAbstract implements IEvent{
     }
 
     remove(e:Event):void{
-        e.preventDefault();
-        console.log('remove' + this.id);
+        const event = new CustomEvent('remove-element', {detail: {id:this.id}});
+        document.dispatchEvent(event);
     }
 
 

@@ -12,7 +12,7 @@ export class Modal {
         this.init();
     }
 
-    init():void{
+    private init():void{
         this.element = document.querySelector('.modal');
         this.windowElement = document.querySelector('.modal-window');
         this.closeBtnElement = document.querySelector('.modal-window .close');
@@ -23,7 +23,7 @@ export class Modal {
         this.closeBtnElement.addEventListener('click', this.close.bind(this));
     }
 
-    showInfo(data: {title: string, content: string[], footer: HTMLElement}) {
+    public showInfo(data: {title: string, content: string[], footer: HTMLElement}) {
         this.insertTitle(data.title);
         const modalInfoElement:HTMLElement = document.createElement('div');
         modalInfoElement.classList.add('modal-info');
@@ -36,16 +36,16 @@ export class Modal {
         this.show();
     }
 
-    insertTitle(title: string){
+    private insertTitle(title: string){
         const titleElement:HTMLElement = document.querySelector('.modal-title');
         titleElement.innerText = title;
     }
 
-    show(){
+    public show(){
         this.element.style.display = 'block';
     }
 
-    close(){
+    public close(){
         while (this.bodyWindowElement.firstChild) {
             this.bodyWindowElement.removeChild(this.bodyWindowElement.firstChild);
         }

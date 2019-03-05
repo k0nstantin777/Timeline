@@ -23,7 +23,7 @@ for(let i = 0; i < 10; i++){
                 description: transactionsDescriptions[getRandomInRange(0,2)],
                 move: transactionsMoves[getRandomInRange(0,1)],
             },
-            date: date.toLocaleDateString(),
+            date: date,
         });
     } else if (type === 'news'){
         events.push({
@@ -32,9 +32,9 @@ for(let i = 0; i < 10; i++){
             content: {
                 head: newsHeads[getRandomInRange(0,2)],
                 message: newsMessages[getRandomInRange(0,2)],
-                isRead: getRandomInRange(0,1)
+                isRead: !!getRandomInRange(0,1)
             },
-            date: date.toLocaleDateString(),
+            date: date,
         });
     }
 }
@@ -43,4 +43,4 @@ function getRandomInRange(min:number, max:number):number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default events;
+export {events};

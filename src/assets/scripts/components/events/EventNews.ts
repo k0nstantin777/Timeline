@@ -21,32 +21,36 @@ export class EventNews extends EventAbstract implements IEvent{
         const body = element.querySelector('.timeline-event-item-body');
         const header :HTMLElement = new ElementBuilder('span', {'text': this.content.head}).build();
         body.append(header);
+        const footer = element.querySelector('.timeline-event-item-footer');
+        const mark:HTMLElement = new ElementBuilder('i', {'class': (this.content.isRead === true) ? 'fa fa-envelope-open-o' : 'fa fa-envelope-o', 'aria-hidden' : "true"}).build();
+        footer.append(mark);
         return element;
     }
 
     prependInfoForShow():{title: string, content: string[], footer: HTMLElement}{
         const modal:Modal = new Modal;
         const btnElement = new ElementBuilder('button', {type: 'button', class: 'btn btn-primary', text: this.content.isRead ? 'Не прочитано' : 'Прочитано'}).build();
-        btnElement.addEventListener('click', this.remove.bind(this));
+        btnElement.addEventListener('click', this.readed.bind(this));
         return {
-            title: 'Новость, ' + this.date,
+            title: 'Новость, ' + this.date.toLocaleDateString(),
             content: [
                 `Заголовок: ${this.content.head}`,
                 `Содержание: ${this.content.message}`,
-                `Прочитана: ${(this.content.isRead === 1) ? 'Да' : 'Нет'}`,,
+                `Прочитана: ${(this.content.isRead === true) ? 'Да' : 'Нет'}`,,
             ],
             footer: btnElement,
         }
     }
 
     clickEventHandler(){
-        const modal:Modal = new Modal;
         const data = this.prependInfoForShow();
-        modal.showInfo(data);
+        const event = new CustomEvent('show-modal-info', {detail: data});
+        document.dispatchEvent(event);
     }
 
-    remove():void{
-        console.log('remove' + this.id);
+    readed():void{
+        const event = new CustomEvent('check-readed', {detail: {id:this.id}});
+        document.dispatchEvent(event);;
     }
 
 }

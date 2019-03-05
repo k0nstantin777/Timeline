@@ -6,7 +6,7 @@ export abstract class EventAbstract implements IEvent {
     public id:number;
     public type:string;
     public content:AnyObj;
-    public date:string;
+    public date:Date;
     
     constructor(event:IEventData){
         this.id = event.id;
@@ -29,7 +29,7 @@ export abstract class EventAbstract implements IEvent {
         let dateWrapper:HTMLElement = new ElementBuilder('div', {'class': 'date-content-wrapper'}).build();
         let point:HTMLElement = new ElementBuilder('span', {'class': 'point'}).build();
         let line:HTMLElement = new ElementBuilder('span', {'class': 'line'}).build();
-        let date:HTMLElement = new ElementBuilder('p', {'class': 'date', 'text': this.date}).build();
+        let date:HTMLElement = new ElementBuilder('p', {'class': 'date', 'text': this.date.toLocaleDateString()}).build();
         dateWrapper.append(point);
         dateWrapper.append(line);
         dateWrapper.append(date);
