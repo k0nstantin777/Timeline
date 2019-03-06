@@ -2375,10 +2375,32 @@ h1 {
     .timeline {
       padding: 5% 0%; } }
   .timeline .timeline-head {
-    flex-basis: 100%;
+    flex-basis: 80%;
     text-align: center; }
   .timeline .timeline-line {
     border: 2px solid #6161a7; }
+  .timeline .timeline-navbar {
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px; }
+    .timeline .timeline-navbar .sorts {
+      display: flex;
+      margin: 0 20px; }
+      .timeline .timeline-navbar .sorts .sort-title {
+        font-weight: 600; }
+      .timeline .timeline-navbar .sorts .sort-item {
+        padding: 0 20px;
+        display: flex;
+        cursor: pointer; }
+        .timeline .timeline-navbar .sorts .sort-item.active {
+          font-weight: 600;
+          color: #4453ce; }
+        .timeline .timeline-navbar .sorts .sort-item i {
+          margin-left: 5px; }
   .timeline .timeline-column {
     flex-basis: 40%; }
     @media screen and (max-width: 760px) {
@@ -2410,6 +2432,8 @@ h1 {
         background-color: #81e881; }
       .timeline .timeline-column .timeline-event-item.transaction .negative {
         background-color: #d36363; }
+      .timeline .timeline-column .timeline-event-item.news .readed {
+        background-color: #6161a7; }
       .timeline .timeline-column .timeline-event-item .timeline-event-item-footer {
         display: flex;
         align-items: center;
@@ -2517,7 +2541,7 @@ h1 {
       background-color: #ebecf9;
       border-radius: 20px;
       border: 2px solid #ccc;
-      position: fixed;
+      position: absolute;
       left: 0;
       right: 0; }
       @media screen and (max-width: 760px) {
@@ -2530,8 +2554,23 @@ h1 {
         .modal .modal-wrapper .modal-window .modal-body .modal-info p {
           font-size: 1.3em;
           margin: 15px; }
+        .modal .modal-wrapper .modal-window .modal-body .modal-form .form-event-fields {
+          margin-top: 10px; }
+        .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field {
+          display: flex;
+          flex-wrap: wrap; }
+          .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field:not(:last-child) {
+            margin-bottom: 10px; }
+          .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field label {
+            flex-basis: 100%;
+            padding: 5px 0; }
+          .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field input, .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field select, .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field textarea {
+            padding: 5px 10px;
+            flex-basis: 100%; }
+          .modal .modal-wrapper .modal-window .modal-body .modal-form .form-field select {
+            background-color: #fff; }
       .modal .modal-wrapper .modal-window .modal-footer {
-        margin: 20px; }
+        margin: 20px 40px; }
 
 .close {
   font-size: 1.2em;

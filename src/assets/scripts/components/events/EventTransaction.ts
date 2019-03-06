@@ -3,6 +3,7 @@ import { IEventData } from '../../interfaces/IEventData';
 import { ITransactionContent } from "../../interfaces/ITransactionContent";
 import { EventAbstract } from "./EventAbstract";
 import { ElementBuilder } from '../../helpers/ElementBuilder'; 
+import { IFormField } from '../../interfaces/IFormField';
 
 export class EventTransaction extends EventAbstract implements IEvent{
 
@@ -32,6 +33,55 @@ export class EventTransaction extends EventAbstract implements IEvent{
         footer.append(mark);
         return element;
     }
+
+    public getFormFields():IFormField[]{
+        return [
+            {
+                label: 'Сумма транзакции',
+                tag: 'input',
+                type: 'text',
+                id: 'summ',
+            },
+            {
+                label: 'Валюта',
+                tag: 'input',
+                type: 'text',
+                id: 'curency',
+            },
+            {
+                label: 'Вид',
+                tag: 'select',
+                options: [
+                    {
+                        label: 'Приход',
+                        value: 'Приход'
+                    },
+                    {
+                        label: 'Расход',
+                        value: 'Расход'
+                    }
+                ],
+                id: 'move',
+            },
+            {
+                label: 'Автор',
+                tag: 'input',
+                type: 'text',
+                id: 'author',
+            },
+            {
+                label: 'Описание',
+                tag: 'textArea',
+                id: 'description',
+            },
+            {
+                label: 'Дата',
+                tag: 'input',
+                type: 'date',
+                id: 'date',
+            },
+        ]
+    };
 
     protected prependInfoForShow():{title: string, content: string[], footer: HTMLElement}{
         const btnElement = new ElementBuilder('button', {type: 'button', class: 'btn btn-danger', text: 'Удалить'}).build();

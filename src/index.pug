@@ -9,6 +9,12 @@ html
             section.container
                 article.timeline.flex.flex-wrap.justify-center
                     h1.timeline-head Timeline
+                    nav.timeline-navbar
+                        button.btn.btn-primary#create-event(type="button") Создать событие
+                        div.sorts 
+                            p.sort-title Cортировка: 
+                            p.sort-item.active#sort-date По дате <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                            p.sort-item#sort-type По типу <i class="fa fa-sort" aria-hidden="true"></i>
                     div.timeline-column.flex.direction-column.left  
                     div.timeline-line
                     div.timeline-column.flex.direction-column.right
@@ -16,8 +22,10 @@ html
             div.modal-wrapper
                 div.modal-window     
                     div.modal-head.flex.align-center.justify-space-between
-                        h2.modal-title
+                        h2.modal-title Финансовая транзакция
                         span.close
                             i.fa.fa-close(title="Закрыть") 
                     div.modal-body
+                        
                     div.modal-footer.flex.justify-end
+                        button.btn.btn-primary(type="button") Создать 

@@ -2,6 +2,7 @@ import {IEvent} from '../../interfaces/IEvent';
 import {IEventData} from '../../interfaces/IEventData';
 import { EventTransaction } from "./EventTransaction";
 import { EventNews } from "./EventNews";
+
 export class EventFactory{
 
     constructor(private type: string){}

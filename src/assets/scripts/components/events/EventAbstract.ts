@@ -2,6 +2,7 @@ import {IEvent} from '../../interfaces/IEvent';
 import {IEventData} from '../../interfaces/IEventData';
 import {AnyObj} from '../../interfaces/AnyObj'; 
 import {ElementBuilder} from '../../helpers/ElementBuilder'; 
+import { IFormField } from '../../interfaces/IFormField';
 
 export abstract class EventAbstract implements IEvent {
     public id:number;
@@ -43,6 +44,8 @@ export abstract class EventAbstract implements IEvent {
         eventElement.addEventListener('click', this.show.bind(this));
         return eventElement;
     }
+
+    abstract getFormFields():IFormField[];
 
     private show():void{
         const data = this.prependInfoForShow();

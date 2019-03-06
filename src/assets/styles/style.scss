@@ -89,11 +89,35 @@ h1 {
         padding: 5% 0%;
     }
     .timeline-head{
-        flex-basis: 100%;
+        flex-basis: 80%;
         text-align: center;
     }
     .timeline-line{
         border: 2px solid #6161a7;
+    }
+    .timeline-navbar{
+        flex-basis: 80%;
+        @include flex-centered-wrapped;
+        margin: 20px;
+        .sorts{
+            display: flex;
+            margin: 0 20px;
+            .sort-title{
+                font-weight: 600;
+            }
+            .sort-item{
+                padding: 0 20px;
+                display:flex;
+                cursor:pointer;
+                &.active{
+                    font-weight: 600;
+                    color: $item-color;
+                }
+                i{
+                    margin-left: 5px;
+                }
+            }
+        }
     }
     .timeline-column{
         flex-basis: 40%;
@@ -133,6 +157,11 @@ h1 {
                 .negative{
                     background-color: #d36363;   
                 }     
+            }
+            &.news{
+                .readed{
+                    background-color: #6161a7;
+                }
             }
             .timeline-event-item-footer{ 
                 @include flex-centered;
@@ -273,7 +302,7 @@ h1 {
             background-color: #ebecf9;
             border-radius: 20px;
             border: 2px solid #ccc;
-            position: fixed;
+            position: absolute;
             left: 0;
             right: 0;
             @media screen and (max-width: 760px) {
@@ -289,10 +318,32 @@ h1 {
                         font-size: 1.3em;
                         margin: 15px;     
                     }
+                }
+                .modal-form{
+                    .form-event-fields{
+                        margin-top: 10px;
+                    }
+                    .form-field{
+                        @include flex-wrapped();
+                        &:not(:last-child){
+                            margin-bottom: 10px;
+                        }
+                        label{
+                            flex-basis: 100%;
+                            padding: 5px 0;
+                        }
+                        input, select, textarea{
+                            padding: 5px 10px;
+                            flex-basis: 100%;
+                        }
+                        select{
+                            background-color: #fff;
+                        }
+                    }
                 }  
             }
             .modal-footer{
-                margin: 20px; 
+                margin: 20px 40px; 
             }
         }
     }

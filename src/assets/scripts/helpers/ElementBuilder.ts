@@ -5,7 +5,7 @@ export class ElementBuilder {
         
     }
 
-    build():HTMLElement{
+    build():HTMLElement|HTMLInputElement{
         const element:HTMLElement = document.createElement(this.tagname);
         if(Object.keys(this.attrs).length > 0){
             for(let name in this.attrs){

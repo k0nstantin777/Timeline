@@ -25,6 +25,24 @@ export class Modal {
         this.show();
     }
 
+    public showForm(data: {title: string, body:HTMLElement, footer: HTMLElement}) {
+        this.insertTitle(data.title);
+        this.bodyWindowElement.append(data.body);
+        this.footerWindowElement.append(data.footer);
+
+        this.show();
+    }
+
+    public updateForm(data: {target:string, element:HTMLElement}) {
+        const targetElement = document.querySelector(data.target);
+        if(targetElement.childNodes[1]){
+            targetElement.replaceChild(data.element, targetElement.childNodes[1]);
+            return;
+        }
+        targetElement.append(data.element);
+        
+    }
+
     public show(){
         this.element.style.display = 'block';
     }
