@@ -2339,6 +2339,9 @@ body {
   background-size: 100% 100%;
   color: #9e9e9e;
   position: relative; }
+  @media screen and (max-width: 760px) {
+    body {
+      font-size: 12px; } }
 
 h1 {
   font-size: 3em; }
@@ -2368,6 +2371,9 @@ h1 {
 
 .timeline {
   padding: 5%; }
+  @media screen and (max-width: 760px) {
+    .timeline {
+      padding: 5% 0%; } }
   .timeline .timeline-head {
     flex-basis: 100%;
     text-align: center; }
@@ -2375,6 +2381,9 @@ h1 {
     border: 2px solid #6161a7; }
   .timeline .timeline-column {
     flex-basis: 40%; }
+    @media screen and (max-width: 760px) {
+      .timeline .timeline-column {
+        flex-basis: 49%; } }
     .timeline .timeline-column .timeline-event-item {
       margin: 20px 12px 0px;
       border-radius: 10px;
@@ -2435,6 +2444,9 @@ h1 {
             height: 0;
             position: absolute;
             top: 4px; }
+            @media screen and (max-width: 760px) {
+              .timeline .timeline-column .timeline-event-item .date-content .date-content-wrapper .line {
+                width: 10%; } }
           .timeline .timeline-column .timeline-event-item .date-content .date-content-wrapper .date {
             background-color: #4453ce;
             color: #fff;
@@ -2461,6 +2473,9 @@ h1 {
         left: 0; }
       .timeline .timeline-column.left .timeline-event-item .date-content .date-content-wrapper .date {
         right: 0; }
+        @media screen and (max-width: 760px) {
+          .timeline .timeline-column.left .timeline-event-item .date-content .date-content-wrapper .date {
+            left: 10px; } }
     .timeline .timeline-column.left .timeline-event-item:after {
       right: -16px;
       border-left: 8px solid #fff; }
@@ -2474,6 +2489,10 @@ h1 {
         right: 0; }
       .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .date {
         left: 0; }
+        @media screen and (max-width: 760px) {
+          .timeline .timeline-column.right .timeline-event-item .date-content .date-content-wrapper .date {
+            left: auto;
+            right: 10px; } }
     .timeline .timeline-column.right .timeline-event-item:before {
       left: -16px;
       border-right: 8px solid #fff; }
@@ -2493,12 +2512,17 @@ h1 {
     position: relative; }
     .modal .modal-wrapper .modal-window {
       width: 80%;
+      max-width: 600px;
       margin: 15% auto;
       background-color: #ebecf9;
       border-radius: 20px;
       border: 2px solid #ccc;
       position: fixed;
-      left: 10%; }
+      left: 0;
+      right: 0; }
+      @media screen and (max-width: 760px) {
+        .modal .modal-wrapper .modal-window {
+          margin: 35% auto; } }
       .modal .modal-wrapper .modal-window .modal-head {
         padding: 10px 20px; }
       .modal .modal-wrapper .modal-window .modal-body {

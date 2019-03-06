@@ -1,5 +1,5 @@
-import {AnyObj} from '../interfaces/AnyObj'; 
 import {ElementBuilder} from '../helpers/ElementBuilder'; 
+
 export class Modal {
     private element:HTMLElement;
     private windowElement:HTMLElement;
@@ -10,17 +10,6 @@ export class Modal {
 
     constructor(){
         this.init();
-    }
-
-    private init():void{
-        this.element = document.querySelector('.modal');
-        this.windowElement = document.querySelector('.modal-window');
-        this.closeBtnElement = document.querySelector('.modal-window .close');
-        this.bodyWindowElement = this.windowElement.querySelector('.modal-body');
-        this.headWindowElement = this.windowElement.querySelector('.modal-head');
-        this.footerWindowElement = this.windowElement.querySelector('.modal-footer');
-
-        this.closeBtnElement.addEventListener('click', this.close.bind(this));
     }
 
     public showInfo(data: {title: string, content: string[], footer: HTMLElement}) {
@@ -36,11 +25,6 @@ export class Modal {
         this.show();
     }
 
-    private insertTitle(title: string){
-        const titleElement:HTMLElement = document.querySelector('.modal-title');
-        titleElement.innerText = title;
-    }
-
     public show(){
         this.element.style.display = 'block';
     }
@@ -54,4 +38,22 @@ export class Modal {
         }
         this.element.style.display = 'none';
     }
+
+    private init():void{
+        this.element = document.querySelector('.modal');
+        this.windowElement = document.querySelector('.modal-window');
+        this.closeBtnElement = document.querySelector('.modal-window .close');
+        this.bodyWindowElement = this.windowElement.querySelector('.modal-body');
+        this.headWindowElement = this.windowElement.querySelector('.modal-head');
+        this.footerWindowElement = this.windowElement.querySelector('.modal-footer');
+
+        this.closeBtnElement.addEventListener('click', this.close.bind(this));
+    }
+
+    private insertTitle(title: string){
+        const titleElement:HTMLElement = document.querySelector('.modal-title');
+        titleElement.innerText = title;
+    }
+
+    
 }

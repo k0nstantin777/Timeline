@@ -3,7 +3,6 @@ import {INewsContent} from "../../interfaces/INewsContent";
 import {IEventData} from '../../interfaces/IEventData';
 import {EventAbstract} from "./EventAbstract";
 import {ElementBuilder} from '../../helpers/ElementBuilder'; 
-import {Modal} from '../Modal'; 
 
 export class EventNews extends EventAbstract implements IEvent{
 
@@ -28,7 +27,6 @@ export class EventNews extends EventAbstract implements IEvent{
     }
 
     prependInfoForShow():{title: string, content: string[], footer: HTMLElement}{
-        const modal:Modal = new Modal;
         const btnElement = new ElementBuilder('button', {type: 'button', class: 'btn btn-primary', text: this.content.isRead ? 'Не прочитано' : 'Прочитано'}).build();
         btnElement.addEventListener('click', this.readed.bind(this));
         return {
@@ -40,12 +38,6 @@ export class EventNews extends EventAbstract implements IEvent{
             ],
             footer: btnElement,
         }
-    }
-
-    clickEventHandler(){
-        const data = this.prependInfoForShow();
-        const event = new CustomEvent('show-modal-info', {detail: data});
-        document.dispatchEvent(event);
     }
 
     readed():void{
