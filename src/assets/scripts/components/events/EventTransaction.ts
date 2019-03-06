@@ -13,8 +13,8 @@ export class EventTransaction extends EventAbstract implements IEvent{
         super(event)
     }
 
-    public create(): HTMLElement{
-        const element = super.create();
+    public createElement(): HTMLElement{
+        const element = super.createElement();
         const head = element.querySelector('.timeline-event-item-head');
         const title:HTMLElement = new ElementBuilder('p', {'html': '<i class="fa fa-money" aria-hidden="true"></i> Финансовая транзакция'}).build();
         head.append(title);
@@ -46,7 +46,7 @@ export class EventTransaction extends EventAbstract implements IEvent{
                 label: 'Валюта',
                 tag: 'input',
                 type: 'text',
-                id: 'curency',
+                id: 'currency',
             },
             {
                 label: 'Вид',
@@ -54,11 +54,11 @@ export class EventTransaction extends EventAbstract implements IEvent{
                 options: [
                     {
                         label: 'Приход',
-                        value: 'Приход'
+                        value: 'positive'
                     },
                     {
                         label: 'Расход',
-                        value: 'Расход'
+                        value: 'negative'
                     }
                 ],
                 id: 'move',
@@ -95,6 +95,29 @@ export class EventTransaction extends EventAbstract implements IEvent{
                 `Описание: ${this.content.description}`,
             ],
             footer: btnElement,
+        }
+    }
+
+    create(data:FormData):IEventData{
+        const type = data.get('event') as string;
+        const date =  data.get('date') as string;
+        const summ = data.get('summ') as string;
+        const currency = data.get('currency') as string;
+        const move = data.get('move') as string;
+        const author = data.get('author') as string;
+        const description = data.get('description') as string;
+
+        return {
+            id: 0,
+            type: type,
+            content: {
+                summ: summ,
+                currency: currency,
+                move:move,
+                author:author,
+                description:description,
+            },
+            date: new Date(date),
         }
     }
 

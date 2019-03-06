@@ -17,7 +17,7 @@ export abstract class EventAbstract implements IEvent {
         this.date = event.date;
     }    
     
-    public create():HTMLElement{
+    public createElement():HTMLElement{
         const eventElement:HTMLElement = document.createElement('div');
         eventElement.classList.add('timeline-event', 'timeline-event-item', this.type);
         
@@ -44,6 +44,8 @@ export abstract class EventAbstract implements IEvent {
         eventElement.addEventListener('click', this.show.bind(this));
         return eventElement;
     }
+
+    abstract create(data:FormData):IEventData;
 
     abstract getFormFields():IFormField[];
 

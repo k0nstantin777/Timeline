@@ -13,7 +13,7 @@ html
                         button.btn.btn-primary#create-event(type="button") Создать событие
                         div.sorts 
                             p.sort-title Cортировка: 
-                            p.sort-item.active#sort-date По дате <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                            p.sort-item.active.desc#sort-date По дате <i class="fa fa-sort-desc" aria-hidden="true"></i>
                             p.sort-item#sort-type По типу <i class="fa fa-sort" aria-hidden="true"></i>
                     div.timeline-column.flex.direction-column.left  
                     div.timeline-line
@@ -22,10 +22,9 @@ html
             div.modal-wrapper
                 div.modal-window     
                     div.modal-head.flex.align-center.justify-space-between
-                        h2.modal-title Финансовая транзакция
+                        h2.modal-title
                         span.close
                             i.fa.fa-close(title="Закрыть") 
                     div.modal-body
-                        
                     div.modal-footer.flex.justify-end
-                        button.btn.btn-primary(type="button") Создать 
+                        //button.btn.btn-primary(type="button") Создать 

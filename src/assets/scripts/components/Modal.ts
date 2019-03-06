@@ -33,14 +33,15 @@ export class Modal {
         this.show();
     }
 
-    public updateForm(data: {target:string, element:HTMLElement}) {
-        const targetElement = document.querySelector(data.target);
-        if(targetElement.childNodes[1]){
-            targetElement.replaceChild(data.element, targetElement.childNodes[1]);
-            return;
-        }
-        targetElement.append(data.element);
-        
+    public updateForm(data: {target:string, element:HTMLElement}[]) {
+        data.forEach(action => { 
+            const targetElement = document.querySelector(action.target);
+            if(targetElement.childNodes[1]){
+                targetElement.replaceChild(action.element, targetElement.childNodes[1]);
+                return;
+            }
+            targetElement.append(action.element);
+        })        
     }
 
     public show(){

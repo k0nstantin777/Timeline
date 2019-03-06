@@ -2387,9 +2387,18 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin: 20px; }
+    @media screen and (max-width: 760px) {
+      .timeline .timeline-navbar {
+        margin: 20px 0;
+        flex-basis: 100%; } }
     .timeline .timeline-navbar .sorts {
       display: flex;
       margin: 0 20px; }
+      @media screen and (max-width: 760px) {
+        .timeline .timeline-navbar .sorts {
+          margin: 20px 0;
+          flex-basis: 100%;
+          justify-content: center; } }
       .timeline .timeline-navbar .sorts .sort-title {
         font-weight: 600; }
       .timeline .timeline-navbar .sorts .sort-item {

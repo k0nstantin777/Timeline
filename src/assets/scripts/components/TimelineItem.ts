@@ -12,11 +12,16 @@ export class TimelineItem {
 
     build():HTMLElement{
         const eventObject = this.eventFactory.getEventObject(this.event);
-        return eventObject.create();
+        return eventObject.createElement();
     }
 
     getCreateFormFields():IFormField[]{
         const eventObject = this.eventFactory.getEventObject(this.event);
         return eventObject.getFormFields();
+    }
+
+    createEvent(data:FormData){
+        const eventObject = this.eventFactory.getEventObject(this.event);
+        return eventObject.create(data);
     }
 }
