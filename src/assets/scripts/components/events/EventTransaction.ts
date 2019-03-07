@@ -98,7 +98,7 @@ export class EventTransaction extends EventAbstract implements IEvent{
         }
     }
 
-    create(data:FormData):IEventData{
+    public create(data:FormData):IEventData{
         const type = data.get('event') as string;
         const date =  data.get('date') as string;
         const summ = data.get('summ') as string;

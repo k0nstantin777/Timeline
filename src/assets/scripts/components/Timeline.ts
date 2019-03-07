@@ -2,8 +2,6 @@ import { EventList } from './events/EventList';
 import { TimelineFormItem } from './TimelineFormItem';
 import { TimelineItem } from './TimelineItem';
 import { IEventData } from '../interfaces/IEventData';
-import { IFormField } from '../interfaces/IFormField';
-import { ElementBuilder } from '../helpers/ElementBuilder';
 
 export class Timeline {
     public events: IEventData[];
@@ -42,7 +40,6 @@ export class Timeline {
     public build(){
         this.clearTimeline();
         this.events = this.eventList.get();
-        console.log(this.events);
         this.setHeightLine();
         let marginTop = 20;
         this.events.forEach((event, index) => {
@@ -114,5 +111,4 @@ export class Timeline {
             this.rightColumnElement.removeChild(this.rightColumnElement.firstChild);
         }
     }
-
 }

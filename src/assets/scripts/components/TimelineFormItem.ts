@@ -22,7 +22,6 @@ export class TimelineFormItem{
         modalFormElement.addEventListener('submit', function(event){
             event.preventDefault();
             const data = new FormData(this);
-            data.forEach((item, key) => console.log(item, key));
             self.createNewEvent(data);
         });
         modalFormElement.append(this.createDefaultFormField());
@@ -134,7 +133,7 @@ export class TimelineFormItem{
     }
 
 
-    private changeEventsHandler(e:Event){
+    private changeEventsHandler(e:Event):void{
         const type = (<HTMLInputElement>e.target).value;
         let data:HTMLElement;
         let button:HTMLElement; 

@@ -45,16 +45,13 @@ export class Modal {
     }
 
     public show(){
+        document.body.classList.add('scroll-hidden');
         this.element.style.display = 'block';
     }
 
     public close(){
-        while (this.bodyWindowElement.firstChild) {
-            this.bodyWindowElement.removeChild(this.bodyWindowElement.firstChild);
-        }
-        while (this.footerWindowElement.firstChild) {
-            this.footerWindowElement.removeChild(this.footerWindowElement.firstChild);
-        }
+        document.body.classList.remove('scroll-hidden');
+        this.cleare();
         this.element.style.display = 'none';
     }
 
@@ -74,5 +71,12 @@ export class Modal {
         titleElement.innerText = title;
     }
 
-    
+    private cleare(){
+        while (this.bodyWindowElement.firstChild) {
+            this.bodyWindowElement.removeChild(this.bodyWindowElement.firstChild);
+        }
+        while (this.footerWindowElement.firstChild) {
+            this.footerWindowElement.removeChild(this.footerWindowElement.firstChild);
+        }
+    }
 }

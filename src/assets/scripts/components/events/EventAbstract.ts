@@ -1,7 +1,7 @@
-import {IEvent} from '../../interfaces/IEvent';
-import {IEventData} from '../../interfaces/IEventData';
-import {AnyObj} from '../../interfaces/AnyObj'; 
-import {ElementBuilder} from '../../helpers/ElementBuilder'; 
+import { IEvent } from '../../interfaces/IEvent';
+import { IEventData } from '../../interfaces/IEventData';
+import { AnyObj } from '../../interfaces/AnyObj'; 
+import { ElementBuilder } from '../../helpers/ElementBuilder'; 
 import { IFormField } from '../../interfaces/IFormField';
 
 export abstract class EventAbstract implements IEvent {
@@ -42,12 +42,13 @@ export abstract class EventAbstract implements IEvent {
         eventElement.append(dataContent);
 
         eventElement.addEventListener('click', this.show.bind(this));
+
         return eventElement;
     }
 
-    abstract create(data:FormData):IEventData;
+    public abstract create(data:FormData):IEventData;
 
-    abstract getFormFields():IFormField[];
+    public abstract getFormFields():IFormField[];
 
     private show():void{
         const data = this.prependInfoForShow();

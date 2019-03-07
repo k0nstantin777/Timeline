@@ -9,9 +9,11 @@ const newsHeads: string[] = ['Новая версия программы', 'Но
 const newsMessages: string[] = ['У нас вышла новая версия программы', 'У нас новый технический директор', 'Наконецто подведены итоги голосования'];
 
 const events:IEventData[] = [];
+
 for(let i = 0; i < 10; i++){
     const type = eventsTypes[getRandomInRange(0,1)];
     const date = new Date(getRandomInRange(2017,2018), getRandomInRange(0,11), getRandomInRange(0,30));
+    
     if(type === 'transaction'){
         events.push({
             id: i+1,

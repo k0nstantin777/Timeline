@@ -2546,20 +2546,25 @@ h1 {
     .modal .modal-wrapper .modal-window {
       width: 80%;
       max-width: 600px;
+      max-height: 600px;
       margin: 15% auto;
       background-color: #ebecf9;
       border-radius: 20px;
       border: 2px solid #ccc;
-      position: absolute;
+      position: fixed;
       left: 0;
       right: 0; }
       @media screen and (max-width: 760px) {
         .modal .modal-wrapper .modal-window {
-          margin: 35% auto; } }
+          margin: 25% auto; } }
       .modal .modal-wrapper .modal-window .modal-head {
         padding: 10px 20px; }
       .modal .modal-wrapper .modal-window .modal-body {
-        padding: 0 40px; }
+        padding: 0 40px;
+        padding: 0 40px;
+        max-height: 400px;
+        overflow-y: scroll;
+        height: 100%; }
         .modal .modal-wrapper .modal-window .modal-body .modal-info p {
           font-size: 1.3em;
           margin: 15px; }
@@ -2610,3 +2615,6 @@ h1 {
       background-color: #3073b1; }
     .btn.btn-primary:active {
       box-shadow: 1px 1px 15px #aaa; }
+
+.scroll-hidden {
+  overflow: hidden; }

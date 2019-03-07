@@ -1,11 +1,12 @@
 import {Timeline} from './Timeline';
 import {EventList} from './events/EventList';
-import {AnyObj} from '../interfaces/AnyObj'; 
 import { Modal } from './Modal';
+
 export class App {
     public timeline:Timeline;
     public eventList:EventList;
     public modal:Modal;
+    
     constructor(){
         this.timeline = new Timeline();
         this.modal = new Modal;

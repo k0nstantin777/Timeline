@@ -10,17 +10,17 @@ export class TimelineItem {
         this.eventFactory = new EventFactory(event.type);
     }
 
-    build():HTMLElement{
+    public build():HTMLElement{
         const eventObject = this.eventFactory.getEventObject(this.event);
         return eventObject.createElement();
     }
 
-    getCreateFormFields():IFormField[]{
+    public getCreateFormFields():IFormField[]{
         const eventObject = this.eventFactory.getEventObject(this.event);
         return eventObject.getFormFields();
     }
 
-    createEvent(data:FormData){
+    public createEvent(data:FormData){
         const eventObject = this.eventFactory.getEventObject(this.event);
         return eventObject.create(data);
     }
